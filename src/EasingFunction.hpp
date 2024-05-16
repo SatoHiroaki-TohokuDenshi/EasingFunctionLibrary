@@ -32,4 +32,12 @@ namespace EasingFuction {
 	//3乗を利用した、加速して減速するイージング
 	inline double EasingInOutQubic(double x_) noexcept;
 
+	//4乗を利用した、徐々に加速するイージング
+	inline double EasingInQuart(double x_) noexcept;
+
+	//4乗を利用した、徐々に減速するイージング
+	inline double EasingOutQuart(double x_) noexcept;
+
+	//4乗を利用した、加速して減速するイージング
+	inline double EasingInOutQuart(double x_) noexcept;
 }
