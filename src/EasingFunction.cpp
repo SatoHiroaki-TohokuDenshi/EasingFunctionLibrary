@@ -52,3 +52,16 @@ double EasingFuction::EasingInOutQuart(double x_) noexcept {
 	if (x_ < 0.5)	return 8.0 * std::pow(x_, 4.0);
 	else			return 1.0 - std::pow(-2.0 * x_ + 2.0, 4.0) / 2.0;
 }
+
+double EasingFuction::EasingInQuint(double x_) noexcept {
+	return std::pow(x_, 5.0);
+}
+
+double EasingFuction::EasingOutQuint(double x_) noexcept {
+	return 1.0 - std::pow(1.0 - x_, 5.0);
+}
+
+double EasingFuction::EasingInOutQuint(double x_) noexcept {
+	if (x_ < 0.5)	return 16.0 * std::pow(x_, 5.0);
+	else			return 1.0 - std::pow(-2.0 * x_ + 2.0, 5.0) / 2.0;
+}
