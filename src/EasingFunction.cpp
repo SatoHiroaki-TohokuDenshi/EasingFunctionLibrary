@@ -82,3 +82,16 @@ double EasingFuction::EasingInOutExpo(double x_) noexcept {
 	else if (x_ < 0.5)	return std::pow(2.0, 20.0 * x_ - 10.0) / 2.0;
 	else				return (2.0 - std::pow(2.0, -20.0 * x_ + 10.0)) / 2.0;
 }
+
+double EasingFuction::EasingInCirc(double x_) noexcept {
+	return 1.0 - std::sqrt(1.0 - std::pow(x_, 2.0));
+}
+
+double EasingFuction::EasingOutCirc(double x_) noexcept {
+	return std::sqrt(1.0 - std::pow(x_ - 1.0, 2.0));
+}
+
+double EasingFuction::EasingInOutCirc(double x_) noexcept {
+	if (x_ < 0.5)	return (1.0 - std::sqrt(1.0 - std::pow(2.0 * x_, 2.0))) / 2.0;
+	else			return (std::sqrt(1.0 - std::pow(-2.0 * x_ + 2.0, 2.0)) + 1.0) / 2.0;
+}
