@@ -65,3 +65,20 @@ double EasingFuction::EasingInOutQuint(double x_) noexcept {
 	if (x_ < 0.5)	return 16.0 * std::pow(x_, 5.0);
 	else			return 1.0 - std::pow(-2.0 * x_ + 2.0, 5.0) / 2.0;
 }
+
+double EasingFuction::EasingInExpo(double x_) noexcept {
+	if (x_ == 0.0)	return 0.0;
+	else			return std::pow(2.0, 10.0 * x_ - 10.0);
+}
+
+double EasingFuction::EasingOutExpo(double x_) noexcept {
+	if (x_ == 0)	return 1.0;
+	else			return 1.0 - std::pow(2.0, -10.0 * x_);
+}
+
+double EasingFuction::EasingInOutExpo(double x_) noexcept {
+	if (x_ == 0.0)		return 0.0;
+	else if (x_ == 1.0)	return 1.0;
+	else if (x_ < 0.5)	return std::pow(2.0, 20.0 * x_ - 10.0) / 2.0;
+	else				return (2.0 - std::pow(2.0, -20.0 * x_ + 10.0)) / 2.0;
+}

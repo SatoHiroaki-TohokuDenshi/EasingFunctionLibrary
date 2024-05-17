@@ -50,4 +50,13 @@ namespace EasingFuction {
 	//5乗を利用した、加速して減速するイージング
 	inline double EasingInOutQuint(double x_) noexcept;
 
+	//指数を利用した、徐々に加速するイージング
+	inline double EasingInExpo(double x_) noexcept;
+
+	//指数を利用した、徐々に減速するイージング
+	inline double EasingOutExpo(double x_) noexcept;
+
+	//指数を利用した、加速して減速するイージング
+	inline double EasingInOutExpo(double x_) noexcept;
+	
 }
