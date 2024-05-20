@@ -85,4 +85,13 @@ namespace EasingFuction {
 
 	//弾性のある入りと終わりのイージング
 	inline double EasingInOutElastic(double x_) noexcept;
+
+	//弾む動きの入りののイージング
+	inline double EasingInBounce(double x_) noexcept;
+
+	//弾む動きの終わりのイージング
+	inline double EasingOutBounce(double x_) noexcept;
+
+	//弾む動きの入りと終わりのイージング
+	inline double EasingInOutBounce(double x_) noexcept;
 }

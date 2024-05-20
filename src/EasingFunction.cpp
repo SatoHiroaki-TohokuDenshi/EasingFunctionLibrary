@@ -143,3 +143,22 @@ double EasingFuction::EasingInOutElastic(double x_) noexcept {
 	else if (x_ < 0.5)	return -(std::pow(2.0, 20.0 * x_ - 10.0) * std::sin((20.0 * x_ - 11.125) * CONSTANT_INOUT_ELASTIC)) / 2.0;
 	else				return (std::pow(2.0, -20.0 * x_ + 10.0) * std::sin((20.0 * x_ - 11.125) * CONSTANT_INOUT_ELASTIC)) / 2.0 + 1.0;
 }
+
+double EasingFuction::EasingInBounce(double x_) noexcept {
+	return 1.0 - EasingFuction::EasingOutBounce(1.0 - x_);
+}
+
+double EasingFuction::EasingOutBounce(double x_) noexcept {
+	constexpr double CONSTANT_OUT_BOUNCE_1 = 7.5625;
+	constexpr double CONSTANT_OUT_BOUNCE_2 = 2.75;
+
+	if (x_ < 1.0 / CONSTANT_OUT_BOUNCE_2)		return CONSTANT_OUT_BOUNCE_1 * std::pow(x_, 2.0);
+	else if (x_ < 2.0 / CONSTANT_OUT_BOUNCE_2)	return CONSTANT_OUT_BOUNCE_1 * (x_ -= 1.5 / CONSTANT_OUT_BOUNCE_2) * x_ + 0.75;
+	else if (x_ < 2.5 / CONSTANT_OUT_BOUNCE_2)	return CONSTANT_OUT_BOUNCE_1 * (x_ -= 2.25 / CONSTANT_OUT_BOUNCE_2) * x_ + 0.9375;
+	else										return CONSTANT_OUT_BOUNCE_1 * (x_ -= 2.625 / CONSTANT_OUT_BOUNCE_2) * x_ + 0.984375;
+}
+
+double EasingFuction::EasingInOutBounce(double x_) noexcept {
+	if (x_ < 0.5)	return (1.0 - EasingFuction::EasingOutBounce(1.0 - 2.0 * x_)) / 2.0;
+	else			return (1.0 + EasingFuction::EasingOutBounce(2.0 * x_ - 1.0)) / 2.0;
+}
