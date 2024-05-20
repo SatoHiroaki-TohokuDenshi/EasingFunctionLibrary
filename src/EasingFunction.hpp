@@ -76,4 +76,13 @@ namespace EasingFuction {
 
 	//少し戻って、行き過ぎてから戻るイージング
 	inline double EasingInOutBack(double x_) noexcept;
+
+	//弾性のある入りのイージング
+	inline double EasingInElastic(double x_) noexcept;
+
+	//弾性のある終わりのイージング
+	inline double EasingOutElastic(double x_) noexcept;
+
+	//弾性のある入りと終わりのイージング
+	inline double EasingInOutElastic(double x_) noexcept;
 }

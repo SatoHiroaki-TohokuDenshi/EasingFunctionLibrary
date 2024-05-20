@@ -118,3 +118,28 @@ double EasingFuction::EasingInOutBack(double x_) noexcept {
 	if (x_ < 0.5)	return (std::pow(2.0 * x_, 2.0) * ((CONSTANT_INOUT_BACK + 1.0) * 2.0 * x_ - CONSTANT_INOUT_BACK)) / 2.0;
 	else			return (std::pow(2.0 * x_ - 2.0, 2.0) * ((CONSTANT_INOUT_BACK + 1.0) * (x_ * 2.0 - 2.0) + CONSTANT_INOUT_BACK) + 2.0) / 2.0;
 }
+
+double EasingFuction::EasingInElastic(double x_) noexcept {
+	constexpr double CONSTANT_IN_ELASTIC = (2.0 * M_PI) / 3.0;
+
+	if (x_ == 0.0)		return 0.0;
+	else if (x_ == 1.0)	return 1.0;
+	else				return -std::pow(2.0, 10.0 * x_ - 10.0) * std::sin((x_ * 10.0 - 10.75) * CONSTANT_IN_ELASTIC);
+}
+
+double EasingFuction::EasingOutElastic(double x_) noexcept {
+	constexpr double CONSTANT_OUT_ELASTIC = (2.0 * M_PI) / 3.0;
+
+	if (x_ == 0.0)		return 0.0;
+	else if (x_ == 1.0)	return 1.0;
+	else				return std::pow(2.0, -10.0 * x_) * std::sin((x_ * 10.0 - 0.75) * CONSTANT_OUT_ELASTIC) + 1.0;
+}
+
+double EasingFuction::EasingInOutElastic(double x_) noexcept {
+	constexpr double CONSTANT_INOUT_ELASTIC = (2.0 * M_PI) / 4.5;
+
+	if (x_ == 0.0)		return 0.0;
+	else if (x_ == 1.0)	return 1.0;
+	else if (x_ < 0.5)	return -(std::pow(2.0, 20.0 * x_ - 10.0) * std::sin((20.0 * x_ - 11.125) * CONSTANT_INOUT_ELASTIC)) / 2.0;
+	else				return (std::pow(2.0, -20.0 * x_ + 10.0) * std::sin((20.0 * x_ - 11.125) * CONSTANT_INOUT_ELASTIC)) / 2.0 + 1.0;
+}
