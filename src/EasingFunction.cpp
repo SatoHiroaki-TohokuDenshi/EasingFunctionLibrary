@@ -2,6 +2,10 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 
+namespace {
+	constexpr double CONSTANT_EASING_BACK = 1.70158;
+}
+
 double EasingFuction::EasingInSine(double x_) noexcept {
 	return 1.0 - std::cos((x_ * M_PI) / 2.0);
 }
@@ -94,4 +98,23 @@ double EasingFuction::EasingOutCirc(double x_) noexcept {
 double EasingFuction::EasingInOutCirc(double x_) noexcept {
 	if (x_ < 0.5)	return (1.0 - std::sqrt(1.0 - std::pow(2.0 * x_, 2.0))) / 2.0;
 	else			return (std::sqrt(1.0 - std::pow(-2.0 * x_ + 2.0, 2.0)) + 1.0) / 2.0;
+}
+
+double EasingFuction::EasingInBack(double x_) noexcept {
+	constexpr double CONSTANT_IN_BACK = CONSTANT_EASING_BACK + 1.0;
+
+	return CONSTANT_IN_BACK * std::pow(x_, 3.0) - CONSTANT_EASING_BACK * std::pow(x_, 2.0);
+}
+
+double EasingFuction::EasingOutBack(double x_) noexcept {
+	constexpr double CONSTANT_OUT_BACK = CONSTANT_EASING_BACK + 1.0;
+
+	return 1.0 + CONSTANT_OUT_BACK * std::pow(x_ - 1.0, 3.0) + CONSTANT_EASING_BACK * std::pow(x_ - 1.0, 2.0);
+}
+
+double EasingFuction::EasingInOutBack(double x_) noexcept {
+	constexpr double CONSTANT_INOUT_BACK = CONSTANT_EASING_BACK * 1.525;
+
+	if (x_ < 0.5)	return (std::pow(2.0 * x_, 2.0) * ((CONSTANT_INOUT_BACK + 1.0) * 2.0 * x_ - CONSTANT_INOUT_BACK)) / 2.0;
+	else			return (std::pow(2.0 * x_ - 2.0, 2.0) * ((CONSTANT_INOUT_BACK + 1.0) * (x_ * 2.0 - 2.0) + CONSTANT_INOUT_BACK) + 2.0) / 2.0;
 }

@@ -68,4 +68,12 @@ namespace EasingFuction {
 	//円を利用した、加速して減速するイージング
 	inline double EasingInOutCirc(double x_) noexcept;
 	
+	//最初に少し戻るイージング
+	inline double EasingInBack(double x_) noexcept;
+
+	//最後に行き過ぎてから戻るイージング
+	inline double EasingOutBack(double x_) noexcept;
+
+	//少し戻って、行き過ぎてから戻るイージング
+	inline double EasingInOutBack(double x_) noexcept;
 }
